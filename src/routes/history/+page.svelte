@@ -1,3 +1,13 @@
+<script lang="ts">
+  import { onMount } from "svelte";
+
+  let history: string[][] = [];
+
+  onMount(() => {
+    history = JSON.parse(localStorage.getItem("history") || "[]");
+  });
+</script>
+
 <div class="container">
   <div class="row">
     <div class="col">
@@ -16,38 +26,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Jakarta</td>
-                <td>Jakarta Pusat</td>
-                <td>PA. Cibalok - Gadog</td>
-                <td>100</td>
-                <td class="text-danger fw-bold">Siaga 1</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jakarta</td>
-                <td>Jakarta Pusat</td>
-                <td>PA. Cibalok - Gadog</td>
-                <td>100</td>
-                <td class="text-danger fw-bold">Siaga 1</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Jakarta</td>
-                <td>Jakarta Pusat</td>
-                <td>PA. Cibalok - Gadog</td>
-                <td>100</td>
-                <td class="text-danger fw-bold">Siaga 1</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Jakarta</td>
-                <td>Jakarta Pusat</td>
-                <td>PA. Cibalok - Gadog</td>
-                <td>100</td>
-                <td class="text-danger fw-bold">Siaga 1</td>
-              </tr>
+              {#each history as item, i}
+                <tr>
+                  <th scope="row">{i + 1}</th>
+                  {#each item as data}
+                    <td>{@html data}</td>
+                  {/each}
+                </tr>
+              {/each}
             </tbody>
           </table>
           <div class="d-grid gap-2">

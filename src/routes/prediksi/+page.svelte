@@ -46,6 +46,10 @@
         tinggi_air,
         `<span class="fw-bold text-primary">${json.data.banjir}</span>`,
       ];
+      let history = JSON.parse(localStorage.getItem("history") || "[]");
+      history.push(arr);
+      localStorage.setItem("history", JSON.stringify(history));
+
       statusBanjir = arr;
     } catch (error) {
       console.log(error);
