@@ -29,8 +29,10 @@
               {#each history as item, i}
                 <tr>
                   <th scope="row">{i + 1}</th>
-                  {#each item as data}
-                    <td>{@html data}</td>
+                  {#each item as data, j}
+                    {#if j > 0}
+                      <td>{@html data}</td>
+                    {/if}
                   {/each}
                 </tr>
               {/each}
