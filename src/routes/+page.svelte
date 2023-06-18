@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-header bg-primary text-white">Login</div>
         <div class="card-body text-center">
-          <a href="/prediksi"
+          <a href="/pilihan"
             ><img src="/google.png" alt="login" style="width:200px" /></a
           >
           <p>--------- or ---------</p>
@@ -25,7 +25,7 @@
                 placeholder="Enter password"
               />
             </div>
-            <a href="/prediksi" class="btn btn-primary px-5"> Login </a>
+            <a href="/pilihan" class="btn btn-primary px-5"> Login </a>
           </form>
         </div>
       </div>

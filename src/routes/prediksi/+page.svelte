@@ -1,6 +1,9 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col">
+      <div>
+        <img src="/peta.jpeg" alt="peta" class="w-100 mb-2" />
+      </div>
       <div class="card">
         <div class="card-header bg-primary text-white">Prediksi</div>
         <div class="card-body">
@@ -14,8 +17,8 @@
             />
           </div>
           <div class="form-group mb-3 text-center">
-            <label for="nama" class="mb-2">Kota / Kab.</label>
-            <select class="form-control text-center">
+            <label for="kota" class="mb-2">Kota / Kab.</label>
+            <select class="form-control text-center" id="kota" name="kota">
               <option value="Jakarta Pusat">Jakarta Pusat</option>
               <option value="Jakarta Barat">Jakarta Barat</option>
               <option value="Jakarta Selatan">Jakarta Selatan</option>
@@ -24,8 +27,12 @@
             </select>
           </div>
           <div class="form-group mb-3 text-center">
-            <label for="nama" class="mb-2">Nama Pintu Air</label>
-            <select class="form-control text-center">
+            <label for="namapintu" class="mb-2">Nama Pintu Air</label>
+            <select
+              class="form-control text-center"
+              id="namapintu"
+              name="namapintu"
+            >
               <option value="PA. Cibalok - Gadog">PA. Cibalok - Gadog</option>
               <option value="P.A. Hek">P.A. Hek</option>
               <option value="PA. Pulo Gadung">PA. Pulo Gadung</option>
@@ -60,11 +67,17 @@
             </select>
           </div>
           <div class="form-group mb-3 text-center">
-            <label for="nama" class="mb-2">Kota / Kab.</label>
-            <input class="text-center form-control" type="number" />
+            <label for="tinggi" class="mb-2">Tinggi Permukaan Air</label>
+            <input
+              class="text-center form-control"
+              type="number"
+              id="tinggi"
+              name="tinggi"
+            />
           </div>
-          <div class="text-center">
-            <button class="btn btn-primary px-5">Proses</button>
+          <div class="text-center d-grid gap-2">
+            <button class="btn btn-primary">Proses</button>
+            <a href="/pilihan" class="btn btn-danger">Kembali</a>
           </div>
         </div>
       </div>
