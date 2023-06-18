@@ -84,29 +84,31 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      <table class="table table-bordered mt-3">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Propinsi</th>
-            <th scope="col">Kota / Kab.</th>
-            <th scope="col">Nama Pintu Air</th>
-            <th scope="col">Tinggi Muka Air</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Jakarta</td>
-            <td>Jakarta Pusat</td>
-            <td>PA. Cibalok - Gadog</td>
-            <td>100</td>
-            <td class="text-danger fw-bold">Siaga 1</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="col pb-5">
+      <div class="table-responsive pb-5 border-1 border mt-3">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Propinsi</th>
+              <th scope="col">Kota / Kab.</th>
+              <th scope="col">Nama Pintu Air</th>
+              <th scope="col">Tinggi Muka Air</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Jakarta</td>
+              <td>Jakarta Pusat</td>
+              <td>PA. Cibalok - Gadog</td>
+              <td>100</td>
+              <td class="text-danger fw-bold">Siaga 1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
