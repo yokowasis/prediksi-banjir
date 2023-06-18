@@ -1,3 +1,58 @@
+<script lang="ts">
+  let statusBanjir = ["", "", "", "", "", ""];
+
+  // https://4001.app.web.id/
+  async function proses() {
+    statusBanjir = ["", "", "Loading...", "", "", "", ""];
+    const kode_pintu = parseInt(
+      (document.getElementById("namapintu") as HTMLInputElement).value
+    );
+    const tinggi_air = (document.getElementById("tinggi") as HTMLInputElement)
+      .value;
+    const kode_kota = parseInt(
+      (document.getElementById("kota") as HTMLInputElement).value
+    );
+
+    const kode_kota_text = (
+      document.getElementById("kota") as HTMLSelectElement
+    ).options[kode_kota].text;
+
+    const kode_pintu_text = (
+      document.getElementById("namapintu") as HTMLSelectElement
+    ).options[kode_pintu].text;
+
+    const data = {
+      kode_pintu,
+      tinggi_air,
+      kode_kota,
+    };
+
+    const r = await fetch(`https://4001.app.web.id/`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    try {
+      const json = await r.json();
+      console.log(json);
+      const arr = [
+        "1",
+        "Jakarta",
+        kode_kota_text,
+        kode_pintu_text,
+        tinggi_air,
+        `<span class="fw-bold text-primary">${json.data.banjir}</span>`,
+      ];
+      statusBanjir = arr;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+</script>
+
 <div class="container mt-3">
   <div class="row">
     <div class="col">
@@ -19,11 +74,11 @@
           <div class="form-group mb-3 text-center">
             <label for="kota" class="mb-2">Kota / Kab.</label>
             <select class="form-control text-center" id="kota" name="kota">
-              <option value="Jakarta Pusat">Jakarta Pusat</option>
-              <option value="Jakarta Barat">Jakarta Barat</option>
-              <option value="Jakarta Selatan">Jakarta Selatan</option>
-              <option value="Jakarta Timur">Jakarta Timur</option>
-              <option value="Jakarta Utara">Jakarta Utara</option>
+              <option value="0">Jakarta Selatan</option>
+              <option value="1">Jakarta Timur</option>
+              <option value="2">Jakarta Utara</option>
+              <option value="3">Jakarta Pusat</option>
+              <option value="4">Jakarta Barat</option>
             </select>
           </div>
           <div class="form-group mb-3 text-center">
@@ -33,37 +88,31 @@
               id="namapintu"
               name="namapintu"
             >
-              <option value="PA. Cibalok - Gadog">PA. Cibalok - Gadog</option>
-              <option value="P.A. Hek">P.A. Hek</option>
-              <option value="PA. Pulo Gadung">PA. Pulo Gadung</option>
-              <option value="PS. Cipinang Hulu">PS. Cipinang Hulu</option>
-              <option value="PS. Krukut Hulu">PS. Krukut Hulu</option>
-              <option value="PS. Angke Hulu">PS. Angke Hulu</option>
-              <option value="Pompa Yos Sudarso 1">Pompa Yos Sudarso 1</option>
-              <option value="PS. Katulampa (Hulu)">PS. Katulampa (Hulu)</option>
-              <option value="PS. Depok">PS. Depok</option>
-              <option value="PA. Manggarai">PA. Manggarai</option>
-              <option value="Pompa Cideng">Pompa Cideng</option>
-              <option value="P.A. Karet">P.A. Karet</option>
-              <option value="P.A. Marina Ancol ">P.A. Marina Ancol </option>
-              <option value="Pompa Pasar Ikan">Pompa Pasar Ikan</option>
-              <option value="P.A. Pluit">P.A. Pluit</option>
-              <option value="PS. Pesanggrahan">PS. Pesanggrahan</option>
-              <option value="PS. Sunter Hulu">PS. Sunter Hulu</option>
-              <option value="Pompa Kali Duri (Kalijodo)"
-                >Pompa Kali Duri (Kalijodo)</option
-              >
-              <option value="P.A. Istiqlal  ">P.A. Istiqlal </option>
-              <option value="P.A. Jembatan Merah">P.A. Jembatan Merah</option>
-              <option value="P.A. Ancol Flusing">P.A. Ancol Flusing</option>
-              <option value="P.A. Flusing Ancol">P.A. Flusing Ancol</option>
-              <option value="Bendung. Cibalok - Gadog"
-                >Bendung. Cibalok - Gadog</option
-              >
-              <option value="Bendung. Katulampa (Hulu)"
-                >Bendung. Katulampa (Hulu)</option
-              >
-              <option value="Pompa. Pluit">Pompa. Pluit</option>
+              <option value="0">PA. Cibalok - Gadog</option>
+              <option value="1">P.A. Hek</option>
+              <option value="2">PA. Pulo Gadung</option>
+              <option value="3">PS. Cipinang Hulu</option>
+              <option value="4">PS. Krukut Hulu</option>
+              <option value="5">PS. Angke Hulu</option>
+              <option value="6">Pompa Yos Sudarso 1</option>
+              <option value="7">PS. Katulampa (Hulu)</option>
+              <option value="8">PS. Depok</option>
+              <option value="9">PA. Manggarai</option>
+              <option value="10">Pompa Cideng</option>
+              <option value="11">P.A. Karet</option>
+              <option value="12">P.A. Marina Ancol </option>
+              <option value="13">Pompa Pasar Ikan</option>
+              <option value="14">P.A. Pluit</option>
+              <option value="15">PS. Pesanggrahan</option>
+              <option value="16">PS. Sunter Hulu</option>
+              <option value="17">Pompa Kali Duri (Kalijodo)</option>
+              <option value="18">P.A. Istiqlal </option>
+              <option value="19">P.A. Jembatan Merah</option>
+              <option value="20">P.A. Ancol Flusing</option>
+              <option value="21">P.A. Flusing Ancol</option>
+              <option value="22">Bendung. Cibalok - Gadog</option>
+              <option value="23">Bendung. Katulampa (Hulu)</option>
+              <option value="24">Pompa. Pluit</option>
             </select>
           </div>
           <div class="form-group mb-3 text-center">
@@ -76,7 +125,7 @@
             />
           </div>
           <div class="text-center d-grid gap-2">
-            <button class="btn btn-primary">Proses</button>
+            <button class="btn btn-primary" on:click={proses}>Proses</button>
             <a href="/pilihan" class="btn btn-danger">Kembali</a>
           </div>
         </div>
@@ -99,12 +148,9 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>Jakarta</td>
-              <td>Jakarta Pusat</td>
-              <td>PA. Cibalok - Gadog</td>
-              <td>100</td>
-              <td class="text-danger fw-bold">Siaga 1</td>
+              {#each statusBanjir as td}
+                <td>{@html td}</td>
+              {/each}
             </tr>
           </tbody>
         </table>
