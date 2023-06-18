@@ -1,5 +1,13 @@
 <script lang="ts">
+  import InputText from "../../component/InputText.svelte";
+
   let statusBanjir = ["", "", "", "", "", ""];
+
+  let tinggiAir = "0";
+
+  $: {
+    console.log(tinggiAir);
+  }
 
   // https://4001.app.web.id/
   async function proses() {
@@ -119,15 +127,13 @@
               <option value="24">Pompa. Pluit</option>
             </select>
           </div>
-          <div class="form-group mb-3 text-center">
-            <label for="tinggi" class="mb-2">Tinggi Permukaan Air</label>
-            <input
-              class="text-center form-control"
-              type="number"
-              id="tinggi"
-              name="tinggi"
-            />
-          </div>
+          <InputText
+            containerClassName="mb-3"
+            bind:value={tinggiAir}
+            alignment="center"
+            id="tinggi"
+            placeholder="Tinggi Permukaan Air"
+          />
           <div class="text-center d-grid gap-2">
             <button class="btn btn-primary" on:click={proses}>Proses</button>
             <a href="/pilihan" class="btn btn-danger">Kembali</a>
