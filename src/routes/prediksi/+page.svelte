@@ -6,11 +6,54 @@
 
   let statusBanjir = ["", "", "", "", "", ""];
 
-  let tinggiAir = "0";
+  let kota = "0";
 
   $: {
-    console.log(tinggiAir);
+    filteredPintuAir = daftarPintuAir[parseInt(kota)];
   }
+
+  let filteredPintuAir: { value: string; text: string }[] = [];
+
+  const daftarPintuAir = [
+    [
+      { value: "0", text: "PA. Cibalok - Gadog" },
+      { value: "4", text: "PS. Krukut Hulu" },
+      { value: "5", text: "PS. Angke Hulu" },
+      { value: "7", text: "PS. Katulampa (Hulu)" },
+      { value: "8", text: "PS. Depok" },
+      { value: "9", text: "PA. Manggarai" },
+      { value: "11", text: "P.A. Karet" },
+      { value: "15", text: "PS. Pesanggrahan" },
+      { value: "22", text: "Bendung. Cibalok - Gadog" },
+      { value: "23", text: "Bendung. Katulampa (Hulu)" },
+    ],
+    [
+      { value: "1", text: "P.A. Hek" },
+      { value: "2", text: "PA. Pulo Gadung" },
+      { value: "3", text: "PS. Cipinang Hulu" },
+      { value: "16", text: "PS. Sunter Hulu" },
+    ],
+    [
+      { value: "6", text: "Pompa Yos Sudarso 1" },
+      { value: "12", text: "P.A. Marina Ancol " },
+      { value: "13", text: "Pompa Pasar Ikan" },
+      { value: "14", text: "P.A. Pluit" },
+      { value: "20", text: "P.A. Ancol Flusing" },
+      { value: "21", text: "P.A. Flusing Ancol" },
+      { value: "24", text: "Pompa. Pluit" },
+    ],
+    [
+      { value: "10", text: "Pompa Cideng" },
+      { value: "18", text: "P.A. Istiqlal" },
+      { value: "19", text: "P.A. Jembatan Merah" },
+    ],
+    [
+      {
+        value: "17",
+        text: "Pompa Kali Duri (Kalijodo)",
+      },
+    ],
+  ];
 
   // https://4001.app.web.id/
   async function proses() {
@@ -61,7 +104,7 @@
 
 <div class="container mt-3">
   <div class="row d-flex justify-content-center">
-    <div class="col col-sm-8 col-md-5">
+    <div class="col col-md-5">
       <div>
         <img src="/peta.jpeg" alt="peta" class="w-100 mb-2" />
       </div>
@@ -80,6 +123,7 @@
             label="Kota / Kab."
             id="kota"
             alignment="center"
+            bind:value={kota}
             options={[
               {
                 value: "0",
@@ -108,33 +152,7 @@
             label="Nama Pintu Air"
             containerClassName="mb-3 text-center"
             alignment="center"
-            options={[
-              { value: "0", text: "PA. Cibalok - Gadog" },
-              { value: "1", text: "P.A. Hek" },
-              { value: "2", text: "PA. Pulo Gadung" },
-              { value: "3", text: "PS. Cipinang Hulu" },
-              { value: "4", text: "PS. Krukut Hulu" },
-              { value: "5", text: "PS. Angke Hulu" },
-              { value: "6", text: "Pompa Yos Sudarso 1" },
-              { value: "7", text: "PS. Katulampa (Hulu" },
-              { value: "8", text: "PS. Depok" },
-              { value: "9", text: "PA. Manggarai" },
-              { value: "10", text: "Pompa Cideng" },
-              { value: "11", text: "P.A. Karet" },
-              { value: "12", text: "P.A. Marina Ancol " },
-              { value: "13", text: "Pompa Pasar Ikan" },
-              { value: "14", text: "P.A. Pluit" },
-              { value: "15", text: "PS. Pesanggrahan" },
-              { value: "16", text: "PS. Sunter Hulu" },
-              { value: "17", text: "Pompa Kali Duri (Kalijodo" },
-              { value: "18", text: "P.A. Istiqlal " },
-              { value: "19", text: "P.A. Jembatan Merah" },
-              { value: "20", text: "P.A. Ancol Flusing" },
-              { value: "21", text: "P.A. Flusing Ancol" },
-              { value: "22", text: "Bendung. Cibalok - Gadog" },
-              { value: "23", text: "Bendung. Katulampa (Hulu" },
-              { value: "24", text: "Pompa. Pluit" },
-            ]}
+            options={filteredPintuAir}
           />
           <InputNumber
             id="tinggi"
@@ -151,7 +169,7 @@
     </div>
   </div>
   <div class="row d-flex justify-content-center">
-    <div class="col col-sm-8 col-md-5 pb-5">
+    <div class="col col-md-5 pb-5">
       <div class="table-responsive pb-5 border-1 border mt-3">
         <table class="table table-bordered">
           <thead>

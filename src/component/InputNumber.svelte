@@ -18,6 +18,6 @@
     type="number"
     {id}
     name={id}
-    {value}
+    bind:value
   />
 </div>

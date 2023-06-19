@@ -16,7 +16,7 @@
     <label for={id} class="mb-2">{label}</label>
   {/if}
   <select
-    {value}
+    bind:value
     class={`form-control text-${alignment} ${className}`}
     {id}
     name={id}

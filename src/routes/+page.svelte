@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center vh-100">
-    <div class="col col-sm-8 col-md-4">
+    <div class="col col-md-4">
       <div class="card">
         <div class="card-header bg-primary text-white">Login</div>
         <div class="card-body text-center">

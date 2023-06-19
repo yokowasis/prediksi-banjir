@@ -18,6 +18,6 @@
     type="date"
     {id}
     name={id}
-    {value}
+    bind:value
   />
 </div>
