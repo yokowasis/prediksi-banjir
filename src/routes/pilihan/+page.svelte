@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row d-flex mt-3">
-    <div class="col">
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="col col-sm-8 col-md-5">
       <div class="card pb-5">
         <div class="mb-5">
           <img src="/peta.jpeg" class="w-100" alt="peta" />

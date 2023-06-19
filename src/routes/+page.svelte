@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center vh-100">
-    <div class="col col-sm-8">
+    <div class="col col-sm-8 col-md-4">
       <div class="card">
         <div class="card-header bg-primary text-white">Login</div>
         <div class="card-body text-center">
           <a href="/pilihan"
             ><img src="/google.png" alt="login" style="width:200px" /></a
           >
-          <p>--------- or ---------</p>
+          <p class="my-4 text-secondary">--------- or ---------</p>
           <form class="mt-3">
             <div class="form-group mb-3">
               <input
