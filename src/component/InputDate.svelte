@@ -15,7 +15,7 @@
   <input
     class={`form-control text-${alignment} ${className}`}
     {placeholder}
-    type="text"
+    type="date"
     {id}
     name={id}
     {value}
